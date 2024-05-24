@@ -1,65 +1,92 @@
+/* General font styles for h1, p, and button elements */
 h1, p, button {
     font-family: "Edu TAS Beginner", cursive;
 }
 
+/* Paragraph styling */
 p {
     font-weight: bold;
     font-size: 1.25rem;
 }
 
+/* Button styling */
 button {
     font-size: 1.8rem;
     font-weight: bold;
-    display: inline-block;
-    margin: 0 auto;
+    display: block; /* Centers the button */
+    margin: 0 auto; /* Centers the button horizontally */
 }
 
 button:hover {
-    cursor: pointer;
+    cursor: pointer; /* Changes cursor to pointer on hover */
 }
 
+/* Header styling */
 header {
-    display: grid;
-    grid-template-rows: repeat(3, 1fr);
-    justify-content: center;
-    height: 13.5rem;
+    text-align: center; /* Centers text in the header */
+    padding: 1rem 0; /* Adds padding to the header */
 }
 
+/* Intro section in the header */
 header .intro {
-    text-align: center;
+    margin-bottom: 1rem; /* Adds space below the intro section */
 }
 
+/* Scores section in the header */
 header .scores {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    justify-content: center;
-    text-align: center;
-    height: 2.5rem;
+    display: flex; /* Use flexbox for layout */
+    justify-content: center; /* Centers the scores horizontally */
+    gap: 2rem; /* Adds space between the scores */
+    height: 2.5rem; /* Sets a fixed height for the scores section */
 }
 
+/* Main content styling */
+main {
+    display: flex; /* Use flexbox for layout */
+    justify-content: center; /* Centers the ul element */
+    margin-top: 2rem; /* Adds space above the main content to avoid overlap */
+}
+
+/* Styling for the ul element containing the cards */
 main ul {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 2.5rem;
-    justify-content: center;
-    padding-right: 2.5rem;
+    display: grid; /* Use CSS Grid for layout */
+    grid-template-columns: repeat(5, 1fr); /* Maximum of 5 cards per row */
+    gap: 2.5rem; /* Adds space between the cards */
+    padding: 0; /* Removes default padding */
+    justify-content: center; /* Centers the grid */
+    list-style: none; /* Removes default list styling */
+    margin: 0; /* Removes default margin */
+    width: max-content; /* Ensures the grid only takes up the space it needs */
 }
 
+/* Styling for the individual cards */
 main ul li {
-    list-style-type: none;
-    width: 8rem;
-    height: 10rem;
-    background-color: rgb(89, 95, 95);
-    border-radius: .5rem;
-    justify-self: center;
+    width: 8rem; /* Sets the width of the cards */
+    height: 10rem; /* Sets the height of the cards */
+    background-color: rgb(89, 95, 95); /* Sets the background color of the cards */
+    border-radius: .5rem; /* Rounds the corners of the cards */
+    display: flex; /* Use flexbox for card content */
+    align-items: center; /* Centers content vertically */
+    justify-content: center; /* Centers content horizontally */
 }
 
 main ul li:hover {
-    cursor: pointer;
+    cursor: pointer; /* Changes cursor to pointer on hover */
 }
 
+/* Footer styling */
 footer p {
-    font-size: .8rem;
-    font-family: sans-serif;
-    text-align: center;
+    font-size: .8rem; /* Sets the font size of the footer text */
+    font-family: sans-serif; /* Sets the font family of the footer text */
+    text-align: center; /* Centers the footer text */
+}
+
+
+/* Styles for during game */
+.wrongChosen {
+    background-color: rgb(192, 0, 0);
+}
+
+.correctChosen {
+    background-color: rgb(0, 179, 0);
 }
