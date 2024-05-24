@@ -65,6 +65,7 @@ main ul li {
     height: 10rem; /* Sets the height of the cards */
     background-color: rgb(89, 95, 95); /* Sets the background color of the cards */
     border-radius: .5rem; /* Rounds the corners of the cards */
+    border: 1px solid black; /* Gives the cards a border */
     display: flex; /* Use flexbox for card content */
     align-items: center; /* Centers content vertically */
     justify-content: center; /* Centers content horizontally */
@@ -83,6 +84,15 @@ footer p {
 
 
 /* Styles for during game */
+/* Hides button */
+.hidden {
+    display: none;
+}
+
+.ready {
+    background-color: rgb(220, 220, 220);
+}
+
 .wrongChosen {
     background-color: rgb(192, 0, 0);
 }
