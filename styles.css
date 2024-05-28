@@ -1,5 +1,5 @@
-/* General font styles for h1, p, and button elements */
-h1, p, button {
+/* General font styles for h1, p, button, and li elements */
+h1, p, button, li {
     font-family: "Edu TAS Beginner", cursive;
 }
 
@@ -75,6 +75,8 @@ main ul li {
     display: flex; /* Use flexbox for card content */
     align-items: center; /* Centers content vertically */
     justify-content: center; /* Centers content horizontally */
+    color: white;
+    font-size: 2rem;
 }
 
 main ul li:hover {
@@ -97,6 +99,8 @@ footer p {
 
 .ready {
     background-color: rgb(220, 220, 220);
+    color: black;
+    font-size: 2rem;
 }
 
 .incorrectChosen {

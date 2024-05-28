@@ -6,7 +6,6 @@ var winDisplay = document.getElementById('winCounter');
 var startButton = document.getElementById('start');
 var noticeMsg = document.getElementById('notice');
 var cardButton = document.getElementById('cards').children;
-var rand = Math.floor(Math.random() * 10);
 
 function shuffle() { /* Function to start new round upon hitting the 'Shuffle Cards' button */
     let cardBox = document.getElementById('cards');
@@ -14,6 +13,8 @@ function shuffle() { /* Function to start new round upon hitting the 'Shuffle Ca
 
     /* Make a random card correct */
     for (const child of cardBox.children) {
+        let rand = Math.floor(Math.random() * 10);
+
         if (rand === 5) {
             child.classList.add('correct');
             break;
@@ -71,7 +72,7 @@ function pick() {
 }
 
 function handleScore(item) {
-    if (item.id = "correct") {
+    if (item.classList.contains('correct')) {
         noticeMsg.innerHTML = "Good job! You guessed the right card!";
         winCount++;
     }
