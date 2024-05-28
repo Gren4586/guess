@@ -91,6 +91,34 @@ footer p {
 }
 
 
+
+/* Tablet styles */
+@media screen and (min-width: 501px) and (max-width: 820px) {
+    header {
+        padding-bottom: 0;
+    }
+
+    header .intro p{
+        margin-bottom: 0;
+    }
+
+    main ul {
+        grid-template-columns: repeat(3, 1fr);
+        gap: .8rem 2.5rem;
+    }
+
+    main ul li:last-of-type {
+        grid-column: 2 / span 2;
+    }
+}
+
+/* Mobile styles */
+@media screen and (max-width: 500px) {
+    main ul {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 /* Styles for during game */
 /* Hides button */
 .hidden {
