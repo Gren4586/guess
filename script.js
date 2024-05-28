@@ -15,6 +15,7 @@ function shuffle() { /* Function to start new round upon hitting the 'Shuffle Ca
     for (const child of cardBox.children) {
         let rand = Math.floor(Math.random() * 10);
 
+        
         if (rand === 5) {
             child.classList.add('correct');
             break;
