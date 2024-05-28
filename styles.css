@@ -9,6 +9,12 @@ p {
     font-size: 1.25rem;
 }
 
+/* Notice paragraph styling */
+#notice {
+    color: rgb(66, 66, 255);
+    font-size: 1.75rem;
+}
+
 /* Button styling */
 button {
     font-size: 1.8rem;
@@ -93,7 +99,7 @@ footer p {
     background-color: rgb(220, 220, 220);
 }
 
-.wrongChosen {
+.incorrectChosen {
     background-color: rgb(192, 0, 0);
 }
 
