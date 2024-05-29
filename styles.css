@@ -21,10 +21,18 @@ button {
     font-weight: bold;
     display: block; /* Centers the button */
     margin: 0 auto; /* Centers the button horizontally */
+    border: 2px solid rgb(0, 119, 255);;
 }
 
-button:hover {
+#start:hover {
     cursor: pointer; /* Changes cursor to pointer on hover */
+}
+
+/* Greyed out button styling */
+#disabled {
+    background: rgb(122, 122, 122);
+    color: rgb(183, 183, 183);
+    opacity: 0.33;
 }
 
 /* Header styling */
@@ -71,7 +79,7 @@ main ul li {
     height: 10rem; /* Sets the height of the cards */
     background-color: rgb(89, 95, 95); /* Sets the background color of the cards */
     border-radius: .5rem; /* Rounds the corners of the cards */
-    border: 1px solid black; /* Gives the cards a border */
+    border: 2px solid rgb(0, 119, 255); /* Gives the cards a border */
     display: flex; /* Use flexbox for card content */
     align-items: center; /* Centers content vertically */
     justify-content: center; /* Centers content horizontally */

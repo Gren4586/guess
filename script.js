@@ -6,6 +6,7 @@ var roundDisplay = document.getElementById('roundCounter');
 var winDisplay = document.getElementById('winCounter');
 var loseDisplay = document.getElementById('loseCounter');
 var startButton = document.getElementById('start');
+var disabledButton = document.getElementById('disabled');
 var noticeMsg = document.getElementById('notice');
 var cardButton = document.getElementById('cards').children;
 
@@ -27,7 +28,7 @@ function newRound() { /* Function to start new round upon hitting the 'Shuffle C
         }
     }
 
-    /* Remove chosen classes from cards and clear notice message (for subsequent rounds played) */
+    /* Remove chosen classes from cards and set default notice message (for subsequent rounds played) */
     for (const son of cardBox.children) {
         if (son.classList.contains('incorrectChosen')) {
             son.classList.remove('incorrectChosen');
@@ -36,10 +37,11 @@ function newRound() { /* Function to start new round upon hitting the 'Shuffle C
         }
     }
 
-    noticeMsg.innerHTML = "";
+    noticeMsg.innerHTML = "Cards shuffled!";
 
-    /* Hide start button */
+    /* Hide start button, replace with greyed out button */
     startButton.classList.add('hidden');
+    disabledButton.classList.remove('hidden');
     /* Increment round counter */
     roundCount++;
     roundDisplay.innerHTML = `Rounds played: ${roundCount}`;
@@ -54,8 +56,9 @@ function pick(event) {
     let cardBox = document.getElementById('cards');
     let cardChildren = cardBox.children;
     
-        /* Unhide start button */
+        /* Unhide start button and hide greyed out button*/
     startButton.classList.remove('hidden');
+    disabledButton.classList.add('hidden');
 
     handleScore(event.target);
 
@@ -68,6 +71,8 @@ function pick(event) {
             child.classList.add('incorrectChosen');
         }
     }
+
+    startButton.focus({focusvisible: true});
 
 }
 
@@ -88,4 +93,5 @@ function handleScore(item) {
 
 for (var i = 0; i < cardButton.length; i++) {
     cardButton[i].addEventListener('click', pick, false);
+    cardButton[i].addEventListener('keypress', pick, false);
 }
