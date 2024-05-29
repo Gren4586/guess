@@ -72,7 +72,7 @@ function pick(event) {
         }
     }
 
-    startButton.focus({focusvisible: true});
+    startButton.focus({focusvisible: true, preventScroll: true});
 
 }
 

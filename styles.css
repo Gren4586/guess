@@ -110,9 +110,22 @@ footer p {
         margin-bottom: 0;
     }
 
+    header h1 {
+        margin-bottom: 0;
+    }
+
+    p#notice {
+        margin-bottom: 0;
+    }
+
     main ul {
         grid-template-columns: repeat(3, 1fr);
-        gap: .8rem 2.5rem;
+        gap: .75rem 2.5rem;
+    }
+
+    main ul li {
+        width: 6rem;
+        height: 7.8rem;
     }
 
     main ul li:last-of-type {
@@ -122,8 +135,34 @@ footer p {
 
 /* Mobile styles */
 @media screen and (max-width: 500px) {
+    header {
+        padding-bottom: 0;
+    }
+
+    header h1 {
+        margin: 0;
+    }
+
+    p#notice {
+        margin-bottom: 1rem;
+    }
+
+    header .intro p{
+        margin-bottom: 0;
+    }
+
     main ul {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.5rem 1.25rem;
+    }
+
+    main ul li {
+        width: 5.8rem;
+        height: 7rem;
+    }
+
+    main ul li:last-of-type {
+        grid-column: 2 / span 2;
     }
 }
 
