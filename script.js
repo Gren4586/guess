@@ -9,25 +9,18 @@ var startButton = document.getElementById('start');
 var noticeMsg = document.getElementById('notice');
 var cardButton = document.getElementById('cards').children;
 
-function shuffle() { /* Function to start new round upon hitting the 'Shuffle Cards' button */
+function newRound() { /* Function to start new round upon hitting the 'Shuffle Cards' button */
     let cardBox = document.getElementById('cards');
-    let cards = cardBox.children;
 
     /* Make a random card correct */
-    for (const child of cardBox.children) {
-        let rand = Math.floor(Math.random() * 10);
-
-        if (rand === 5) {
-            child.classList.add('correct');
-            break;
-         }
-    }
-
+    let rando = Math.floor(Math.random() * 10);
+    cardBox.children[rando].classList.add('correct');
 
     /* Add 'incorrect' class to all other cards, and add 'ready' class */
     for (const kid of cardBox.children) {
-        
-        kid.classList.add('ready');
+        if (!kid.classList.contains('ready')) {
+            kid.classList.add('ready');
+        }
 
         if (!kid.classList.contains('correct')) {
             kid.classList.add('incorrect');
@@ -51,7 +44,10 @@ function shuffle() { /* Function to start new round upon hitting the 'Shuffle Ca
     roundCount++;
     roundDisplay.innerHTML = `Rounds played: ${roundCount}`;
 }
-startButton.addEventListener('click', shuffle, false); /* Makes shuffle button do the thing */
+
+
+
+startButton.addEventListener('click', newRound, false); /* Makes shuffle button do the thing */
 
 
 function pick(event) {
@@ -60,6 +56,8 @@ function pick(event) {
     
         /* Unhide start button */
     startButton.classList.remove('hidden');
+
+    handleScore(event.target);
 
     for (const child of cardBox.children) { /* Set card colors */
         if (child.classList.contains('correct')) {
@@ -71,18 +69,17 @@ function pick(event) {
         }
     }
 
-    handleScore(event.target);
 }
 
 function handleScore(item) {
 /*     console.log("handleScore called with item:", item);
     console.log("Item classes:", item.classList); */
 
-    if (item.classList.contains('correctChosen')) {
+    if (item.classList.contains('correct')) {
         noticeMsg.innerHTML = "Good job! You guessed the right card!";
         winCount++;
         winDisplay.innerHTML = `Wins: ${winCount}`;
-    } else if (item.classList.contains('ready')) {
+    } else if (item.classList.contains('incorrect')) {
         noticeMsg.innerHTML = "Unlucky! You guessed the wrong card!";
         loseCount++;
         loseDisplay.innerHTML = `Rounds lost: ${loseCount}`;
