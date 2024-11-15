@@ -91,6 +91,11 @@ main ul li:hover {
     cursor: pointer; /* Changes cursor to pointer on hover */
 }
 
+main ul li:focus {
+    border: 2px solid rgb(255 0 0);
+    outline-color: rgb(255 0 0);
+}
+
 /* Footer styling */
 footer p {
     font-size: .8rem; /* Sets the font size of the footer text */
