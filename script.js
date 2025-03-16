@@ -9,6 +9,22 @@ var startButton = document.getElementById('start');
 var disabledButton = document.getElementById('disabled');
 var noticeMsg = document.getElementById('notice');
 var cardButton = document.getElementById('cards').children;
+var winMessages = [ // array index (actual number)
+    "Lucky guess!", // 0 (1)
+    "Wow!", // 1 (2)
+    "How did you do that?", // 2 (3)
+    "How lucky are you?", // 3 (4)
+    "What?!", // 4 (5)
+    "Incredible!" // 5 (6)
+];
+var loseMessages = [
+    "Oh no!", // 0 (1)
+    "HA!", // 1 (2)
+    "Too bad!", // 2 (3)
+    "Seriously?", // 3 (4)
+    "How did you do that?", // 4 (5)
+    "I can't believe it!" // 5 (6)
+];
 
 function newRound() { /* Function to start new round upon hitting the 'Shuffle Cards' button */
     let cardBox = document.getElementById('cards');
@@ -77,15 +93,14 @@ function pick(event) {
 }
 
 function handleScore(item) {
-/*     console.log("handleScore called with item:", item);
-    console.log("Item classes:", item.classList); */
+    let rando = Math.floor(Math.random() * 6);
 
     if (item.classList.contains('correct')) {
-        noticeMsg.innerHTML = "Good job! You guessed the right card!";
+        noticeMsg.innerHTML = winMessages[rando] + " You guessed the right card!";
         winCount++;
         winDisplay.innerHTML = `Wins: ${winCount}`;
     } else if (item.classList.contains('incorrect')) {
-        noticeMsg.innerHTML = "Unlucky! You guessed the wrong card!";
+        noticeMsg.innerHTML = loseMessages[rando] + " You guessed the wrong card!";
         loseCount++;
         loseDisplay.innerHTML = `Rounds lost: ${loseCount}`;
     }
