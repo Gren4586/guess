@@ -10,7 +10,7 @@ p {
 }
 
 /* Notice paragraph styling */
-#notice {
+#notice, #milestone {
     color: rgb(66, 66, 255);
     font-size: 1.75rem;
 }

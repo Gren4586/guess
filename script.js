@@ -8,6 +8,7 @@ var loseDisplay = document.getElementById('loseCounter');
 var startButton = document.getElementById('start');
 var disabledButton = document.getElementById('disabled');
 var noticeMsg = document.getElementById('notice');
+var milestoneMsg = document.getElementById('milestone');
 var cardButton = document.getElementById('cards').children;
 var winMessages = [ // array index (actual number)
     "Lucky guess!", // 0 (1)
@@ -53,6 +54,7 @@ function newRound() { /* Function to start new round upon hitting the 'Shuffle C
         }
     }
 
+    milestoneMsg.innerHTML = "";
     noticeMsg.innerHTML = "Cards shuffled!";
 
     /* Hide start button, replace with greyed out button */
@@ -60,6 +62,15 @@ function newRound() { /* Function to start new round upon hitting the 'Shuffle C
     disabledButton.classList.remove('hidden');
     /* Increment round counter */
     roundCount++;
+
+    if (roundCount == 50) {
+        milestoneMsg.innerHTML = "Wow! 50 rounds played! How much longer can you go?";
+    } else if (roundCount == 100) {
+        milestoneMsg.innerHTML = "Awesome! 100 rounds strong! You sure are dedicated!";
+    } else if (roundCount == 150) {
+        milestoneMsg.innerHTML = "Spectacular dedication! 150 rounds played!";
+    }
+
     roundDisplay.innerHTML = `Rounds played: ${roundCount}`;
 }
 
@@ -103,6 +114,20 @@ function handleScore(item) {
         noticeMsg.innerHTML = loseMessages[rando] + " You guessed the wrong card!";
         loseCount++;
         loseDisplay.innerHTML = `Rounds lost: ${loseCount}`;
+    }
+
+    if (winCount == 20) {
+        milestoneMsg.innerHTML = "Holy moly! 20 wins, good job!";
+    } else if (winCount == 60) {
+        milestoneMsg.innerHTML = "FANTASTIC! 60 wins!";
+    } else if (winCount == 100) {
+        milestoneMsg.innerHTML = "STUPENDOUS!!! ONE HUNDRED WINS!!!";
+    } else if (loseCount == 20) {
+        milestoneMsg.innerHTML = "Aw, shucks. 20 losses. Don't sweat it!";
+    } else if (loseCount == 60) {
+        milestoneMsg.innerHTML = "Yikes... Don't let those 60 losses get to you.";
+    } else if (loseCount == 100) {
+        milestoneMsg.innerHTML = "That's super rough, losing 100 times. No worries if you wanna take a break.";
     }
 }
 
