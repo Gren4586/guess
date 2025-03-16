@@ -10,6 +10,7 @@ var disabledButton = document.getElementById('disabled');
 var noticeMsg = document.getElementById('notice');
 var milestoneMsg = document.getElementById('milestone');
 var cardButton = document.getElementById('cards').children;
+const reachedMilestones = new Set();
 var winMessages = [ // array index (actual number)
     "Lucky guess!", // 0 (1)
     "Wow!", // 1 (2)
@@ -116,19 +117,29 @@ function handleScore(item) {
         loseDisplay.innerHTML = `Rounds lost: ${loseCount}`;
     }
 
-    if (winCount == 20) {
-        milestoneMsg.innerHTML = "Holy moly! 20 wins, good job!";
-    } else if (winCount == 60) {
-        milestoneMsg.innerHTML = "FANTASTIC! 60 wins!";
-    } else if (winCount == 100) {
-        milestoneMsg.innerHTML = "STUPENDOUS!!! ONE HUNDRED WINS!!!";
-    } else if (loseCount == 20) {
-        milestoneMsg.innerHTML = "Aw, shucks. 20 losses. Don't sweat it!";
-    } else if (loseCount == 60) {
-        milestoneMsg.innerHTML = "Yikes... Don't let those 60 losses get to you.";
-    } else if (loseCount == 100) {
-        milestoneMsg.innerHTML = "That's super rough, losing 100 times. No worries if you wanna take a break.";
+    let message = "";
+
+    if (winCount === 20 && !reachedMilestones.has("win20")) {
+        message = "Holy moly! 20 wins, good job!";
+        reachedMilestones.add("win20");
+    } else if (winCount === 60 && !reachedMilestones.has("win60")) {
+        message = "FANTASTIC! 60 wins!";
+        reachedMilestones.add("win60");
+    } else if (winCount === 100 && !reachedMilestones.has("win100")) {
+        message = "STUPENDOUS!!! ONE HUNDRED WINS!!!";
+        reachedMilestones.add("win100");
+    } else if (loseCount === 20 && !reachedMilestones.has("lose20")) {
+        message = "Aw, shucks. 20 losses. Don't sweat it!";
+        reachedMilestones.add("lose20");
+    } else if (loseCount === 60 && !reachedMilestones.has("lose60")) {
+        message = "Yikes... Don't let those 60 losses get to you.";
+        reachedMilestones.add("lose60");
+    } else if (loseCount === 100 && !reachedMilestones.has("lose100")) {
+        message = "That's super rough, losing 100 times. No worries if you wanna take a break.";
+        reachedMilestones.add("lose100");
     }
+
+    milestoneMsg.innerHTML = message;
 }
 
 for (var i = 0; i < cardButton.length; i++) {
