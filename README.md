@@ -11,7 +11,7 @@ There is no end to the game, the player may simply *go until they become bored o
 # CHANGELOG
 
 ### 3/16/2025
-### Version 2.0"
-### The Personality Update"
+### Version 2.0
+### "The Personality Update"
 - Added multiple different messages that can display when winning or losing a round
 - Added milestones for rounds played, rounds won, and rounds lost
